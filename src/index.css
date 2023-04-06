@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  font-family: 'Raleway' sans-serif;
+  text-align: justify;
+}
+
+hr {
+  width: 60vw;
+  align-self: center;
+  border-color: rgb(122, 122, 122);
+}
+
+.non-draggable {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  background-color: black;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}
