@@ -38,7 +38,7 @@ const Presentation = () => {
     return (
         <Container>
             <Content>
-                <div style={{ position: 'relative' }} >
+                <aside style={{ position: 'relative' }} >
                     <CatQuote
                         style={{ transition: 'margin-left .5s' }}
                         isShowing={verticalStackShowing}
@@ -48,16 +48,26 @@ const Presentation = () => {
                     </CatQuote>
                     <AnimatePresence>
                         {!verticalStackShowing &&
-                            <motion.div exit={{ position: 'absolute', top: 20 }} >
+                            <motion.aside exit={{ position: 'absolute', top: 20 }} >
                                 <Cat usingDarkMode={usingDarkMode}>
-                                    <img src={cat} alt='cat body' draggable='false' />
-                                    <CatTail src={tail} alt='cat tail' draggable='false' />
+                                    <img
+                                        src={cat}
+                                        alt='cat body'
+                                        draggable='false'
+                                        title="Cat"
+                                    />
+                                    <CatTail
+                                        src={tail}
+                                        alt='cat tail'
+                                        title="Cat tail"
+                                        draggable='false'
+                                    />
                                 </Cat>
-                            </motion.div>
+                            </motion.aside>
                         }
                     </AnimatePresence>
                     <Test conditional={verticalStackShowing} />
-                </div>
+                </aside>
                 <NameAndRole>
                     <Name usingDarkMode={usingDarkMode}>
                         <p>JOÃO</p>
@@ -94,7 +104,7 @@ const CatQuote = styled.p<IStack>`
     user-select: none;
 `
 
-const Content = styled.div`
+const Content = styled.section`
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -136,7 +146,7 @@ const Cat = styled.div<ITheme>`
     }
 `
 
-const NameAndRole = styled.div`
+const NameAndRole = styled.section`
     display: flex;
     flex-direction: column;
     font-size: 100pt;
@@ -144,7 +154,7 @@ const NameAndRole = styled.div`
     overflow: hidden;
 `
 
-const Name = styled.div<ITheme>`
+const Name = styled.section<ITheme>`
 
     color: ${props => props.usingDarkMode ? 'black' : 'white'};
 
@@ -155,7 +165,7 @@ const Name = styled.div<ITheme>`
     }
 `
 
-const Container = styled.div`
+const Container = styled.section`
     height: 100vh;
     width: 100vw;
     max-width: 100%;

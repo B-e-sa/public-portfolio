@@ -3,7 +3,6 @@ import { useContext, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import GoogleReCaptcha from "react-google-recaptcha";
 import styled from "styled-components";
-import config from "../../../config";
 import { Context } from "../../context";
 import EmailLoader from "./EmailLoader";
 
@@ -36,14 +35,14 @@ const EmailSender = () => {
         setEmailStatus(1);
 
         emailjs.send(
-            config.emailjs.serviceId,
-            config.emailjs.templateId,
+            "service_v49qzuj",
+            "template_9x4fw0n",
             {
                 subject: subject,
                 email: email,
                 message: message,
             },
-            config.emailjs.publicId
+            "MgIfeYjy5ejfrlWlr"
         )
             .then((e) => {
                 setEmailStatus(e.status);
@@ -64,7 +63,10 @@ const EmailSender = () => {
     }
 
     return ReactDOM.createPortal(
-        <FormContainer style={{ top: window.scrollY }} onClick={() => setIsModalShowing(!isModalShowing)}>
+        <FormContainer
+            style={{ top: window.scrollY }}
+            onClick={() => setIsModalShowing(!isModalShowing)}
+        >
             <Form
                 onSubmit={handleSend}
                 onClick={e => e.stopPropagation()}
@@ -77,6 +79,7 @@ const EmailSender = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     name="your email"
+                    title="Your email"
                     placeholder="youremail@email.com"
                     aria-label="your email"
                 />
@@ -86,7 +89,8 @@ const EmailSender = () => {
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     type="text"
-                    placeholder="something"
+                    title="Subject"
+                    placeholder="Subject"
                     name="subject"
                     aria-label="subject"
                 />
@@ -95,7 +99,8 @@ const EmailSender = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     name="email message"
-                    placeholder="some something"
+                    title="Email message"
+                    placeholder="Email message"
                     aria-label="email message"
                     cols={30}
                     rows={10}
@@ -108,11 +113,12 @@ const EmailSender = () => {
                         width: "100%"
                     }}
                     onChange={(token) => setCaptcha(token)}
-                    sitekey={config.reCAPTCHA.sitekey}
+                    sitekey="6LfPL2YlAAAAAOX5Vyq7G7IqKspj7Xzq9HXhCfEh"
                 />
                 <SubmitButton
                     type="submit"
                     aria-label="send"
+                    title="Send"
                 >
                     Send
                 </SubmitButton>
@@ -141,7 +147,7 @@ const SubmitButton = styled.button`
     cursor: pointer;
 `
 
-const FormContainer = styled.div`
+const FormContainer = styled.aside`
     font-family: "Raleway", sans-serif;
     width: 100vw;
     height: 100vh;

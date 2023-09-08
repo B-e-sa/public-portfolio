@@ -3,37 +3,42 @@ import styled from 'styled-components';
 import git from '../../assets/buttons/github.webp';
 import linkedin from '../../assets/buttons/linkedin.webp';
 import { Context } from '../../context';
+import ExternalLink from './ExternalLink';
 
 const Footer = () => {
 
     const { usingDarkMode } = useContext(Context);
 
     return (
-        <FooterContainer>
+        <Container>
             <Nav
                 id='logos-container'
                 style={usingDarkMode ? { filter: 'invert(100%)' } : {}}
             >
-                <a href='https://www.linkedin.com/in/joão-antônio-pereira-b4021b232/' target='_blank'>
+                <ExternalAnchor href='https://www.linkedin.com/in/joão-antônio-pereira-b4021b232/' target='_blank'>
                     <PlatformImage
                         src={linkedin}
                         id='linkedin'
                         alt='linkedin-link'
                         width='45px'
                         height='45px'
+                        title='LinkedIn'
                     />
-                </a>
-                <a href='https://github.com/B-e-sa' target='_blank'>
+                    <ExternalLink />
+                </ExternalAnchor>
+                <ExternalAnchor href='https://github.com/B-e-sa' target='_blank'>
                     <PlatformImage
                         src={git}
                         id='github'
                         alt='github-link'
                         width='45px'
                         height='45px'
+                        title='Git'
                     />
-                </a>
+                    <ExternalLink />
+                </ExternalAnchor>
             </Nav>
-        </FooterContainer>
+        </Container>
     );
 };
 
@@ -41,7 +46,12 @@ const PlatformImage = styled.img`
     width: 45px;
 `
 
-const FooterContainer = styled.footer`
+const ExternalAnchor = styled.a`
+    display: flex;
+    align-items: flex-start;
+`
+
+const Container = styled.footer`
     display: flex;
     align-items: flex-end;
     justify-content: center;

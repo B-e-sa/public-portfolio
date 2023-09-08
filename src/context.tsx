@@ -25,9 +25,9 @@ const ContextProvider = ({ children }: { children: JSX.Element }) => {
     useEffect(() => {
 
         if (isModalShowing)
-            return disableBodyScroll(document);
+            return disableBodyScroll(document.body);
 
-        enableBodyScroll(document)
+        enableBodyScroll(document.body)
         
     }, [isModalShowing])
 

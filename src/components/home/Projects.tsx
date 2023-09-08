@@ -26,9 +26,9 @@ const Projects = (): JSX.Element => {
   }
 
   return (
-    <div id='projects'>
+    <section id='projects'>
         {printProjects()}
-    </div>
+    </section>
   );
 };
 

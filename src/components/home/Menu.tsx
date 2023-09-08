@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import dark from '../../assets/buttons/dark.svg';
 import light from '../../assets/buttons/light.svg';
 import menu from '../../assets/buttons/menu.svg';
+import externalLink from '../../assets/buttons/external-link.svg';
 import { Context } from '../../context';
 import Button, { IButton } from './Button';
+import ExternalLink from './ExternalLink';
 
 const Menu = () => {
 
@@ -23,7 +25,7 @@ const Menu = () => {
     }
 
     return (
-        <Sidebar>
+        <Container>
             <div id='menu'>
                 <Button as={MenuIcon}
                     height={35}
@@ -63,18 +65,32 @@ const Menu = () => {
                         <a href="#projects">
                             <p>Projects</p>
                         </a>
-                        <a href="https://www.linkedin.com/in/joão-antônio-pereira-b4021b232/" target='blank'>
+                        <ExternalAnchor href="https://www.linkedin.com/in/joão-antônio-pereira-b4021b232/" target='blank'>
                             <p>LinkedIn</p>
-                        </a>
-                        <a href="https://github.com/B-e-sa" target='blank'>
+                            <ExternalLink />
+                        </ExternalAnchor>
+                        <ExternalAnchor href="https://github.com/B-e-sa" target='blank'>
                             <p>GitHub</p>
-                        </a>
-                        <p style={{ cursor: "pointer" }} onClick={() => setIsModalShowing(!isModalShowing)} >Contact me</p>
+                            <ExternalLink />
+                        </ExternalAnchor>
+                        <button>
+                            <p
+                                id='contact-button'
+                                style={{ cursor: "pointer" }}
+                                onClick={() => setIsModalShowing(!isModalShowing)}
+                            >
+                                Contact me
+                            </p>
+                        </button>
                     </SideNav>}
             </AnimatePresence>
-        </Sidebar>
+        </Container>
     );
 };
+
+const ExternalAnchor = styled.a`
+    display: flex;
+`
 
 const ThemeIcon = styled.button<IButton>`
     position: absolute;
@@ -94,7 +110,7 @@ const MenuIcon = styled.button`
     transition: transform 0.5s;
 `
 
-const Sidebar = styled.div`
+const Container = styled.header`
     position: sticky;
     top: 0;
     z-index: 3;
@@ -105,6 +121,15 @@ const SideNav = styled.nav`
     a {
         text-decoration: none;
         cursor: pointer;
+    }
+
+    button {
+        border: none;
+        font-size: 12pt;
+        font-weight: bold;
+        font-family: 'Raleway', sans-serif;
+        align-items: flex-start;
+        background-color: transparent;
     }
 
     display: flex;
@@ -125,13 +150,18 @@ const SideNav = styled.nav`
         font-size: 15pt;
         margin: 30px 0 0 70px;
 
+        a, button {
+            align-items: flex-start;
+            border: 1px solid white;
+            background-color: black;
+        }
+
         p {
             color: white !important;
             margin: 0 5px 0 5px;
-            border: 1px solid white;
-            background-color: black;
             padding: 5px;
         }
+
   }
   `
 

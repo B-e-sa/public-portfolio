@@ -5,12 +5,13 @@ const VerticalProjects = (): JSX.Element => {
     return (
         <Container>
             <p>You can click on the images to see more</p>
-            {projects.map(({ alt, description, link, src }) => {
+            {projects.map(({ alt, description, link, src, title }) => {
                 return (
                     <a href={link} target='_blank' key={alt}>
                         <img
                             src={src}
                             alt={description}
+                            title={title}
                             width='280'
                             height='376'
                         />

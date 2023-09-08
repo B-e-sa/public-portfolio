@@ -30,6 +30,7 @@ const DefaultCarousel = () => {
                     <ProjectImage
                         src={projects[currentCard].src}
                         alt={projects[currentCard].alt}
+                        title={projects[currentCard].title}
                         width='280'
                         height='376'
                     />

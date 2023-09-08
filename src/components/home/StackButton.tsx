@@ -28,7 +28,9 @@ const StackButton = () => {
                         <Title usingDarkMode={usingDarkMode}>{ windowWidth > 481 ? name : shortName }</Title>
                         <Image
                             usingDarkMode={usingDarkMode}
-                            src={icon} alt={name}
+                            src={icon} 
+                            alt={name}
+                            title={name}
                             width={50}
                         />
                     </Stacks>

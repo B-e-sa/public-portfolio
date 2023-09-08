@@ -19,9 +19,11 @@ const Home = (): JSX.Element => {
       usingDarkMode={usingDarkMode}
     >
       <Menu />
-      <Presentation />
-      <AboutMe />
-      <Projects />
+      <main>
+        <Presentation />
+        <AboutMe />
+        <Projects />
+      </main>
       <Footer />
       {isModalShowing && <EmailSender />}
     </HomeContainer>

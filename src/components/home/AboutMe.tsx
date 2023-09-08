@@ -24,16 +24,18 @@ const AboutMe = () => {
                         id='light'
                         src={light}
                         alt='light-bulb'
+                        title='Light bulb'
                     />
                     <DevCat
                         src={devCat}
                         alt='dev-cat'
                         className='non-draggable'
+                        title='Dev cat'
                     />
                 </ImageContainer>
                 <Info>
                     <h2> About me </h2>
-                    <div>
+                    <section>
                         <p>
                             Hi! Im João, a Computer Science student
                             and self-taught full-stack developer.
@@ -43,7 +45,7 @@ const AboutMe = () => {
                             Scroll down to see some of my projects!
                         </p>
                         <p>{' (some of them are on default HTML/JS, and will be migrated over time)'}</p>
-                    </div>
+                    </section>
                 </Info>
             </Content>
             <hr />
@@ -61,7 +63,7 @@ const DevCat = styled.img`
 
 `
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.aside`
     width: 250px;
     position: relative;
 
@@ -71,7 +73,7 @@ const ImageContainer = styled.div`
 
 `
 
-const Info = styled.div`
+const Info = styled.section`
 
     width: 500px;
     margin-left: 50px;
@@ -97,7 +99,7 @@ const Info = styled.div`
 
 `
 
-const Container = styled.div`
+const Container = styled.section`
     display: flex;
     justify-content: space-around;
     flex-direction: column;

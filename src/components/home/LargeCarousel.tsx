@@ -47,13 +47,18 @@ const LargeCarousel = () => {
                     <p style={{ position: 'relative', top: -170 }}>
                         You can click on the pictures to go to the source code
                     </p>
-                    {projects.map((item, index) => {
+                    {projects.map(({ alt, src, title, link }, index) => {
                         return (
-                            <a key={item.title} href={item.link} target='_blank'>
+                            <a
+                                key={title}
+                                href={link}
+                                target='_blank'
+                            >
                                 <Image
                                     style={imageStyle(index, selectedImage)}
-                                    src={item.src}
-                                    alt={item.alt}
+                                    src={src}
+                                    alt={alt}
+                                    title={title}
                                 />
                             </a>
                         )
